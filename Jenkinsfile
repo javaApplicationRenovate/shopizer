@@ -10,6 +10,7 @@ pipeline {
                 sh '''
                 ls -al && pwd
                 ./mvnw clean package 
+                cd sm-shop
                 docker build -t "shopizer-main:latest" .
                 docker images
                 '''
