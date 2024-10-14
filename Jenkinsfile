@@ -8,6 +8,20 @@ pipeline {
         DIR_FILES="data"
     }
     stages {
+        stage('DEBUG') {
+            steps{
+                script{      
+
+                  withCredentials([usernamePassword(credentialsId: "CONCERT_CREDENTIALS", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    env.CONCERT_USERNAME="${USERNAME}"
+                    env.CONCERT_PASSWORD="${PASSWORD}" 
+                    sh "echo $CONCERT_PASSWORD"
+                    sh "echo $CONCERT_USERNAME"
+                    sh "env"
+                  }
+              }
+            }
+        }
         stage('Build') {
             steps{
               script{
