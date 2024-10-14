@@ -30,7 +30,9 @@ pipeline {
 
                   withCredentials([usernamePassword(credentialsId: "CONCERT_CREDENTIALS", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     env.CONCERT_USERNAME="${USERNAME}"
-                    env.CONCERT_PASSWORD="${PASSWORD}"    
+                    env.CONCERT_PASSWORD="${PASSWORD}" 
+                    echo $CONCERT_PASSWORD
+                    echo $CONCERT_USERNAME
                     sh "/var/lib/jenkins/lib/concert-ctl -e"
 
                   }
