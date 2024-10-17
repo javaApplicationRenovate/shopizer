@@ -14,7 +14,7 @@ pipeline {
                   withCredentials([usernamePassword(credentialsId: "${DOCKER_REPO_CREDENTIALS}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     env.COMPONENT_NAME="${JOB_NAME}".tokenize("/")[0]
                     sh "./mvnw clean install -DskipTests=true" 
-                    sh cd sm-shop/
+                    sh "cd sm-shop/"
                     sh "docker buildx build --tag ${ENTERPRISE_CONTAINER_BUILD_REPO}/${COMPONENT_NAME}:${BUILD_NUMBER} ."
                     sh "docker login -u ${USERNAME} -p ${PASSWORD} ${ENTERPRISE_CONTAINER_BUILD_REPO}"
                     sh "docker push ${ENTERPRISE_CONTAINER_BUILD_REPO}/${COMPONENT_NAME}:${BUILD_NUMBER}"
