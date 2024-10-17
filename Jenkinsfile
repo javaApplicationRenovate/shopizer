@@ -5,7 +5,7 @@ pipeline {
         CODE_SOURCE_DIR_IN_WORKSPACE="src"
         CONTAINER_BIN="docker"
         GIT_BIN="git"
-        DIR_FILES="data"
+        DIR_FILES="data2"
     }
     stages {
         stage('Build') {
