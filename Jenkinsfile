@@ -40,35 +40,35 @@ pipeline {
         stage('Generate Application SBOM') {
             steps{
                 script{
-                    sh "/var/lib/jenkins/lib/concert-ctl-python-test --app"
+                    sh "/var/lib/jenkins/lib/concert-ctl-python-test --app --debug"
                 }
             }
         }
         stage('Generate Build SBOM') {
             steps{
                 script{
-                    sh "/var/lib/jenkins/lib/concert-ctl-python-test --build"
+                    sh "/var/lib/jenkins/lib/concert-ctl-python-test --build --debug"
                 }
             }
         }
         stage('Generate Deploy SBOM') {
             steps{
                 script{
-                    sh "/var/lib/jenkins/lib/concert-ctl-python-test --deploy"
+                    sh "/var/lib/jenkins/lib/concert-ctl-python-test --deploy --debug"
                 }
             }
         }
         stage('Generate Image Scan report') {
             steps{
                 script{
-                    sh "/var/lib/jenkins/lib/concert-ctl-python-test --image_scan"
+                    sh "/var/lib/jenkins/lib/concert-ctl-python-test --image_scan --debug"
                 }
             }
         }
         stage('Generate Package SBOM') {
             steps{
                 script{
-                    sh "/var/lib/jenkins/lib/concert-ctl-python-test --image"
+                    sh "/var/lib/jenkins/lib/concert-ctl-python-test --image --debug"
                 }
             }
         }
