@@ -3,7 +3,7 @@
     "config:base"
   ],
   "automerge": false,
-  "schedule": ["every 1 minute"],
+  "schedule": ["every weekday"],
   "prCreation": "immediate",
   "packageRules": [
     {
